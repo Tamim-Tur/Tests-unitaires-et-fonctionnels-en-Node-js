@@ -26,6 +26,9 @@ function testAddRemove(){
   if(basket.totalPrice!==0 || basket.items.length!==0 ) return false;
   return true;
 }
+function transactionAllowed(userAccount,priceToPay){
+  return userAccount.balance >= priceToPay;
+}
 
 
-module.exports = { Basket, addToBasket, removeFromBasket, testAddRemove };
+module.exports = { Basket, addToBasket, removeFromBasket, testAddRemove,transactionAllowed };
