@@ -17,5 +17,15 @@ function removeFromBasket(basket, item) {
     basket.totalPrice -= item.price;
   }
 }
+function testAddRemove(){
+  const basket= new Basket();
+  const item={name:'Carte graphique',price:300};
+  addToBasket(basket,item);
+  if(basket.totalPrice!==300 || basket.items.length!==1 ) return false;
+  removeFromBasket(basket,item);
+  if(basket.totalPrice!==0 || basket.items.length!==0 ) return false;
+  return true;
+}
 
-module.exports = { Basket, addToBasket, removeFromBasket };
+
+module.exports = { Basket, addToBasket, removeFromBasket, testAddRemove };
